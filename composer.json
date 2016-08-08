@@ -1,7 +1,7 @@
 {
-    "name": "enrj/puli-ajax-file-uplaoder",
+    "name": "enrj/puli-ajax-file-uploader",
     "type": "puli-package",
-    "description": "Puli Ajax File Uplaoder Package",
+    "description": "Puli Ajax File Uploader Package",
     "keywords": [],
     "authors": [
         {
