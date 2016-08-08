@@ -1,0 +1,36 @@
+{
+    "name": "enrj/puli-ajax-file-uplaoder",
+    "type": "puli-package",
+    "description": "Puli Ajax File Uplaoder Package",
+    "keywords": [],
+    "authors": [
+        {
+            "name": "Jerome Lepeltier",
+            "email": "jlepeltier@nrj.fr"
+        },
+        {
+            "name": "eNRJ People",
+            "homepage": "https://github.com/orgs/eNRJ/people"
+        }
+    ],
+    "require": {
+        "bnbc/upload-bundle": "0.1.0",
+        "puli/cli": "1.0-beta10",
+        "puli/composer-plugin": "1.0-beta10"
+    },
+    "require-dev": {
+        "bruli/php-git-hooks": "4.3.*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+        ],
+        "post-update-cmd": [
+            "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin",
+        "secure-http": false
+    }
+}
