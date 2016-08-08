@@ -12,7 +12,7 @@ use Enrj\Service\AjaxUploaderService;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class AjaxUploaderProvider implements ServiceProviderInterface
+class AjaxUploaderServiceProvider implements ServiceProviderInterface
 {
     /**
      * @param Container $container
