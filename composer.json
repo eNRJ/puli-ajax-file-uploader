@@ -21,7 +21,7 @@
     ],
     "minimum-stability": "beta",
     "require": {
-        "bnbc/upload-bundle": "0.1.0",
+        "bnbc/upload-bundle": "0.1.*",
         "puli/cli": "1.0-beta10",
         "puli/composer-plugin": "1.0-beta10"
     },
