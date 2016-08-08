@@ -13,6 +13,13 @@
             "homepage": "https://github.com/orgs/eNRJ/people"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:eNRJ/Symfony2-Upload-Ajax.git"
+        }
+    ],
+    "minimum-stability": "beta",
     "require": {
         "bnbc/upload-bundle": "0.1.0",
         "puli/cli": "1.0-beta10",
