@@ -36,6 +36,9 @@
             "PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
         ]
     },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
     "config": {
         "bin-dir": "bin",
         "secure-http": false
