@@ -1,6 +1,9 @@
 {
     "version": "1.0",
-    "name": "enrj/puli-ajax-file-uplaoder",
+    "name": "enrj/puli-ajax-file-uploader",
+    "path-mappings": {
+        "/enrj/ajax-file-uploader": "res"
+    },
     "config": {
         "bootstrap-file": "vendor/autoload.php"
     },
