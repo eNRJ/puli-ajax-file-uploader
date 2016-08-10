@@ -2,6 +2,7 @@
 
 namespace Enrj\Service;
 
+use Enrj\UploadHandler;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -62,6 +63,6 @@ class AjaxUploaderService implements LoggerAwareInterface
             }
         }
 
-        new \Bnbc\UploadBundle\BlueImp\UploadHandler($options, true, $this->config->get('error_messages', []));
+        new UploadHandler($options, true, $this->config->get('error_messages', []));
     }
 }

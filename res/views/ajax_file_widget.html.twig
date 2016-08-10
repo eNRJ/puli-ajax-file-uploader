@@ -1,0 +1,152 @@
+{# Bundle d'upload pour Symfony2 #}
+{# https://github.com/bnbc/Symfony2-Upload-Ajax #}
+
+{#Licensed under the MIT license:#}
+{#http://www.opensource.org/licenses/MIT#}
+
+{% block ajax_file_widget %}
+    {% spaceless %}
+
+    <div id="{{ id }}_ajax_file_widget" class="ajax-file-widget">
+    	{{ block('hidden_widget') }}
+        {% set type = 'file' %}
+        {% set original_id = id %}
+        {% set id = 'ajax_file_' ~ original_id %}
+        {% set full_name = 'ajax_file_' ~ full_name %}
+
+        {% if form.vars.multiple %}
+        {%  set attr = {'multiple': form.vars.multiple} %}
+        {% endif %}
+
+        {% for name, value in form.vars.formData %}
+            {% if value %}
+                <input type="hidden" value="{{ value }}" name="{{ id }}_{{ name }}" id="{{ id }}_{{ name }}" />
+            {% endif %}
+        {% endfor %}
+
+        {{ block('form_widget_simple') }}
+
+        {% if form.vars.dropZone %}
+        <div id="{{ id }}_dropzone" class="ajax-file-dropzone">{{ form.vars.dropZoneText }}</div>
+        {% endif %}
+        <script type="text/javascript">
+
+            {# Surcharge des options d'upload #}
+            {{ id }}_formData = [];
+            {% for name, value in form.vars.formData %}
+                {% if value %}
+                    {{ id }}_formData.push({'name': '{{ name }}', value: '{{ value }}'});
+                {% endif %}
+            {% endfor %}
+
+            {# Création de la liste des fichiers #}
+            var {{ id }}CreateList = function(){
+                var list = $('#{{ id }}_list');
+                if(!list.length){
+                    list = $('<ul/>').attr('id', '{{ id }}_list').addClass('ajax-file-list');
+                    $('#{{ original_id }}_ajax_file_widget').append(list);
+                }
+                return list;
+            }
+
+            {# Création d'un bouton d'upload #}
+            var {{ id }}CreateManualSubmit = function(){
+                var submit = $('#{{ id }}_manual_submit');
+                if(!submit.length){
+                    submit = $('<a/>').attr('id', '{{ id }}_manual_submit').addClass('ajax-file-manual-submit').text('{% trans %}Upload files{% endtrans %}');
+                    $('#{{ id }}_list').after(submit);
+                    submit.click(function(){
+                        $.each({{ id }}_add, function (key, data) {
+                            data.submit();
+                        });
+                    });
+                }
+                return submit;
+            }
+
+            {# Création de la barre de progression #}
+            var {{ id }}CreateProgressBar = function(){
+                var progress = $('#{{ id }}_progress');
+                if(!progress.length){
+                    progress = $('<div/>').attr('id', '{{ id }}_progress').addClass('ajax-file-progress');
+                    $('#{{ original_id }}_ajax_file_widget').append(progress);
+                }
+                return progress;
+            }
+
+            {# Tableau pour contenir les fichiers ajoutés via le bouton parcourir, utilisé quand l'auto-upload est défini à false #}
+            var {{ id }}_add = new Array();
+
+            {# Tableau qui va contenir tous les champs d'upload afin de les executer à la fin #}
+            if (typeof ajax_file == 'undefined')
+                ajax_file = new Array();
+
+            ajax_file.push(function(){
+
+                var id = '{{ id }}';
+                var original_id = '{{ original_id }}';
+
+                {# Fix refresh page #}
+                $('#' + original_id).val('');
+                {# Call fileupload plugin #}
+                $('#' + id).fileupload({
+                    url: '{{ path('upload_default_index') }}',
+                    dataType: 'json',
+                    formData: {{ id }}_formData,
+                    paramName: 'ajax_file_form[]',
+                    {% if form.vars.dropZone %}
+                    dropZone: ('#' + id + '_dropzone'),
+                    {% endif %}
+                    autoUpload: {% if form.vars.autoUpload %}true{% else %}false{% endif %},
+                    {% if form.vars.autoUpload == false %}
+                    add: function (e, data) {
+                        var list = {{ id }}CreateList();
+                        {{ id }}CreateManualSubmit();
+
+                        var li = $('<li/>').text(data.files[0].name);
+                        list.append(li);
+                        {{ id }}_add.push(data);
+                    },
+                    {% endif %}
+                    progressall: function (e, data) {
+                        var progress = {{ id }}CreateProgressBar();
+                        var percent = parseInt(data.loaded / data.total * 100, 10);
+                        progress.css(
+                            'width',
+                            percent + '%'
+                        ).text(percent + '%');
+                    },
+                    done: function (e, data) {
+                        var list = {{ id }}CreateList();
+
+                        {% if form.vars.multiple != true %}
+                            $('#' + original_id).val('');
+                            list.empty();
+                        {% endif %}
+
+                        $.each(data.result.ajax_file_form, function (index, file) {
+                            if(file.error){
+                                var li = $('<li/>').html('<b>' + file.name + ':</b> ' + file.error).addClass('error');
+                                list.append(li)
+                            }
+                            else {
+                                $('#' + original_id).val(bnbcAjaxFileSetValue($('#' + original_id).val(), file.name, ';'));
+                                var li = list.find('li:contains(' + file.name + ')');
+                                if(!li.length){
+                                    li = $('<li/>').text(file.name);
+                                    list.append(li);
+                                }
+                                else
+                                    li.addClass('active');
+                            }
+                        });
+                        {% if callbackFunction %}
+                        {{callbackFunction}}();
+                        {% endif %}
+                    }
+                });
+            });
+        </script>
+    </div>
+    {% endspaceless %}
+{% endblock %}
