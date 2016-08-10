@@ -90,7 +90,7 @@
                 $('#' + original_id).val('');
                 {# Call fileupload plugin #}
                 $('#' + id).fileupload({
-                    url: '{{ path('upload_default_index') }}',
+                    url: '{{ path(route) }}',
                     dataType: 'json',
                     formData: {{ id }}_formData,
                     paramName: 'ajax_file_form[]',
@@ -130,7 +130,7 @@
                                 list.append(li)
                             }
                             else {
-                                $('#' + original_id).val(bnbcAjaxFileSetValue($('#' + original_id).val(), file.name, ';'));
+                                $('#' + original_id).val(ajaxFileSetValue($('#' + original_id).val(), file.name, ';'));
                                 var li = list.find('li:contains(' + file.name + ')');
                                 if(!li.length){
                                     li = $('<li/>').text(file.name);

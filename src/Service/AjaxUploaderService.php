@@ -54,7 +54,7 @@ class AjaxUploaderService implements LoggerAwareInterface
         }
 
         $options = [
-            'param_name' => 'bnbc_ajax_file_form',
+            'param_name' => 'ajax_file_form',
             'image_versions' => array_merge($this->config->get('image_versions', []), ['' => ['auto_orient' => true]]),
         ];
         foreach (['accept_file_types', 'max_file_size', 'upload_dir', 'upload_url'] as $option) {

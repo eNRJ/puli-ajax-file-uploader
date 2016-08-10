@@ -28,6 +28,7 @@ class AjaxfileType extends AbstractType
     {
         $resolver->setDefaults(array(
             'compound' => false,
+            'route' => 'upload',
             'formData'     => array(
                 'max_file_size'     => null,
                 'accept_file_types' => null,
@@ -46,6 +47,7 @@ class AjaxfileType extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->vars = array_replace($view->vars, array(
+            'route'             => $options['route'],
             'formData'          => $options['formData'],
             'multiple'          => $options['multiple'],
             'dropZone'          => $options['dropZone'],
