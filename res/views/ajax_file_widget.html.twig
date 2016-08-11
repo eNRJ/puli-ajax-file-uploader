@@ -130,7 +130,8 @@
                                 list.append(li)
                             }
                             else {
-                                $('#' + original_id).val(ajaxFileSetValue($('#' + original_id).val(), file.name, ';'));
+                                var value = $('#' + original_id).val();
+                                $('#' + original_id).val(value ? value + ';' + file.name : file.name);
                                 var li = list.find('li:contains(' + file.name + ')');
                                 if(!li.length){
                                     li = $('<li/>').text(file.name);

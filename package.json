@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "blueimp-file-upload": "^9.12.5",
-    "jquery.iframe-transport": "1.0.0",
     "jquery": "^2.2.1",
     "jquery-ui": "1.10.5"
   }
