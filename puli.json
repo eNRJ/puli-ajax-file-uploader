@@ -15,8 +15,7 @@
         },
         "bnbc/upload-bundle": {
             "install-path": "vendor/bnbc/upload-bundle/Bnbc/UploadBundle",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "bruli/ignore-files": {
             "install-path": "vendor/bruli/ignore-files",
@@ -30,13 +29,11 @@
         },
         "doctrine/annotations": {
             "install-path": "vendor/doctrine/annotations",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "doctrine/cache": {
             "install-path": "vendor/doctrine/cache",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "doctrine/instantiator": {
             "install-path": "vendor/doctrine/instantiator",
@@ -45,8 +42,7 @@
         },
         "doctrine/lexer": {
             "install-path": "vendor/doctrine/lexer",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "fiunchinho/phpunit-randomizer": {
             "install-path": "vendor/fiunchinho/phpunit-randomizer",
@@ -161,8 +157,7 @@
         },
         "psr/cache": {
             "install-path": "vendor/psr/cache",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "psr/log": {
             "install-path": "vendor/psr/log",
@@ -257,23 +252,19 @@
         },
         "symfony/asset": {
             "install-path": "vendor/symfony/asset",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/cache": {
             "install-path": "vendor/symfony/cache",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/class-loader": {
             "install-path": "vendor/symfony/class-loader",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/config": {
             "install-path": "vendor/symfony/config",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/console": {
             "install-path": "vendor/symfony/console",
@@ -281,13 +272,11 @@
         },
         "symfony/debug": {
             "install-path": "vendor/symfony/debug",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/dependency-injection": {
             "install-path": "vendor/symfony/dependency-injection",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/event-dispatcher": {
             "install-path": "vendor/symfony/event-dispatcher",
@@ -299,23 +288,19 @@
         },
         "symfony/finder": {
             "install-path": "vendor/symfony/finder",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/framework-bundle": {
             "install-path": "vendor/symfony/framework-bundle",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/http-foundation": {
             "install-path": "vendor/symfony/http-foundation",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/http-kernel": {
             "install-path": "vendor/symfony/http-kernel",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/polyfill-mbstring": {
             "install-path": "vendor/symfony/polyfill-mbstring",
@@ -323,18 +308,15 @@
         },
         "symfony/polyfill-php56": {
             "install-path": "vendor/symfony/polyfill-php56",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/polyfill-php70": {
             "install-path": "vendor/symfony/polyfill-php70",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/polyfill-util": {
             "install-path": "vendor/symfony/polyfill-util",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/process": {
             "install-path": "vendor/symfony/process",
@@ -342,33 +324,27 @@
         },
         "symfony/routing": {
             "install-path": "vendor/symfony/routing",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/security-core": {
             "install-path": "vendor/symfony/security-core",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/security-csrf": {
             "install-path": "vendor/symfony/security-csrf",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/stopwatch": {
             "install-path": "vendor/symfony/stopwatch",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/templating": {
             "install-path": "vendor/symfony/templating",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/translation": {
             "install-path": "vendor/symfony/translation",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "symfony/yaml": {
             "install-path": "vendor/symfony/yaml",
@@ -377,8 +353,7 @@
         },
         "twig/twig": {
             "install-path": "vendor/twig/twig",
-            "installer": "composer",
-            "env": "dev"
+            "installer": "composer"
         },
         "webmozart/assert": {
             "install-path": "vendor/webmozart/assert",

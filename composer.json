@@ -16,7 +16,7 @@
     "minimum-stability": "beta",
     "require": {
         "puli/cli": "1.0-beta10",
-        "puli/composer-plugin": "dev-master"
+        "puli/composer-plugin": "1.0-beta10"
     },
     "require-dev": {
         "bruli/php-git-hooks": "4.3.*"
